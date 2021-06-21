@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    {% block title%}<title>Document</title>{% endblock %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- pour le fichier statique -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'serviteurs/css/style_base.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="topnav">
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+        </nav>
+    </header>
+    <section class="section1">
+        <ul>
+        {% if liste_de_serviteurs %}
+            {% for serviteur in liste_de_serviteurs %}
+                <li>
+                    <a href="{{ serviteur.get_absolute_url }}">{{ serviteur.retourne}}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+    </section>
+</body>
+</html>
