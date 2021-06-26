@@ -1,0 +1,31 @@
+{% extends 'serviteurs/base.html' %}
+{% block title %} <title> Gestion de serviteurs </title>{% endblock %}
+{% block topinfo %}
+    cette section est reservé
+    en ce qui conserne la gestion de serviteurs
+{% endblock %}
+{% block content_sidebar %}
+    <h3>Dans cette section</h3>
+    <ul>
+        <li>
+            Enregistrer un nouveau serviteur
+        </li>
+        <li>modifier les information sur un serviteurs</li>
+        <li>Suprimer un serviteurs</li>
+        <li>gerer les suspensions</li>
+    </ul>
+{% endblock %}
+{% block maincontent %}
+    <h2>Liste de serviteur</h2>
+    {% if liste_de_serviteurs %}
+        <ul style="list-style-type: decimal">
+        {% for serviteur in liste_de_serviteurs %}
+            <li>
+                <a href="{{ serviteur.get_absolute_url }}">{{ serviteur.prenom }}</a> {{ serviteur.post_nom }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune donnée n'a encore était enregistré dans la base de donnée</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,102 @@
+@import "normalise.css";
+
+body{
+    background-color: rgb(220, 235, 242);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+}
+.topnav{
+    height: 50px;
+    width: 100%;
+    background-color: rgba(84, 81, 81, 0.7);
+    display: flex;
+    position: fixed;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.8);
+    z-index: 2;
+}
+.msg{
+    background-image: url(../images/full_image_2.jpg) ;
+    background-color: transparent;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 20%;
+    text-align: center;
+    font-size: 30px;
+    z-index: 1;
+}
+.containernav{
+    /* du code */
+    margin-left: 10%;
+    margin-top: 20px;
+}
+.containerlogo{
+    height: 100%;
+    margin-left: auto;
+}
+
+.toplogo{
+    height: 100%;
+    opacity: 0.7;
+}
+.btn{
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 7px;
+}
+.topliens{
+    padding: 7px 20px;
+    margin: 5px;
+}
+
+.topnav a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    transition-property: all;
+    transition-duration: 0.7s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+.btn:hover, .activer{
+    border: 2px solid rgba(255, 255, 255, 1);
+
+}
+.activer, a:hover{
+    color: white;
+}
+.toptext{
+    margin-left: 30%;
+    text-align: left;
+}
+
+.main{
+    margin-top: 5px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-left: 20px;
+}
+.sidebar{
+    background-color: rgb(70, 68, 68);
+    width: 40%;
+    padding-left: 5px;
+}
+.sidebar h3{
+    opacity: .6;
+}
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.maincontent{
+    margin-left: 10px;
+    padding-left: 20px;
+    background-color: rgb(138, 138, 250);
+    width: 60%;
+}
+
+.bootomfooter{
+    background-color: black;
+}

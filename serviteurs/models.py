@@ -50,11 +50,10 @@ class Serviteurs(models.Model):
         default='B',
         help_text='resumé de la conduite d\' un serviteur',
     )
-    retourne = f"{nom} {post_nom} {prenom}"
 
     # valuer de retour
     def __str__(self):
-        return self.retourne
+        return f'{self.prenom} {self.post_nom} {self.nom}'
 
     # obtenir les information par serviteurs
     def get_absolute_url(self):

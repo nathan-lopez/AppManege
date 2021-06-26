@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- pour le fichier statique -->
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'serviteurs/style_base.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="topnav">
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+            <a href="#">un lien</a>
+        </nav>
+    </header>
+    <section>
+        <h1>
+            Nom : {{ serviteurs.nom }}
+        </h1>
+        <p>prenom : {{ serviteurs.post_nom }}</p>
+        <p>postnom : {{ serviteurs.prenom }}</p>
+
+    </section>
+</body>
