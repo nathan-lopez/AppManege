@@ -1,5 +1,12 @@
 {% extends 'serviteurs/base.html' %}
+<!-- partie head -->
 {% block title %} <title> Gestion de serviteurs </title>{% endblock %}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "serviteurs/carte_serviteur.css" %}">
+{% endblock %}
+
+<!-- partie body -->
 {% block topinfo %}
     cette section est reservé
     en ce qui conserne la gestion de serviteurs
@@ -10,21 +17,50 @@
         <li>
             Enregistrer un nouveau serviteur
         </li>
-        <li>modifier les information sur un serviteurs</li>
+        <li>modifer les information d'un serviteur</li>
         <li>Suprimer un serviteurs</li>
         <li>gerer les suspensions</li>
     </ul>
 {% endblock %}
 {% block maincontent %}
-    <h2>Liste de serviteur</h2>
+    <h2 class="bigtitle">Liste de serviteur</h2>
+    <hr>
     {% if liste_de_serviteurs %}
-        <ul style="list-style-type: decimal">
+        <div class="allcontent">
         {% for serviteur in liste_de_serviteurs %}
-            <li>
-                <a href="{{ serviteur.get_absolute_url }}">{{ serviteur.prenom }}</a> {{ serviteur.post_nom }}
-            </li>
+                <div class="card">
+                    <div class="additional">
+                        <div class="user-card">
+                            <div class="level center">
+                                photo
+                            </div>
+                            <div class="points center">
+                                <a href="{{ serviteur.get_absolute_url }}">En savoir plus</a>
+                            </div>
+                            <div class="center"> <img src="{{ serviteur.doc.url }}" alt="photo"></div>
+                        </div>
+                        <div class="more-info">
+                            <h1 style="text-transform: capitalize">{{ serviteur.prenom }}</h1>
+                            <div class="coords">
+                                <span>Departement :</span>
+                                <span>nom du Departement</span>
+                            </div>
+                            <div class="coords">
+                                <span>Position/Role ;</span>
+                                <span>membres simple/president</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="general">
+                        <h1 style="text-transform: capitalize">{{ serviteur.prenom }}</h1>
+                        <p>
+                            petite remarque ou intension à l'egard de la personne
+                        </p>
+                        <span class="more">{{ serviteur.adresse }}</span>
+                    </div>
+                </div>
         {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>Aucune donnée n'a encore était enregistré dans la base de donnée</p>
     {% endif %}

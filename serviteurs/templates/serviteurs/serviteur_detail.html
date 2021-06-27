@@ -1,33 +1,49 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- pour le fichier statique -->
-    {% load static %}
-    <link rel="stylesheet"  type="text/css" href="{% static 'serviteurs/style_base.css' %}">
-</head>
-<body>
-    <header>
-        <nav class="topnav">
-            <a href="#">un lien</a>
-            <a href="#">un lien</a>
-            <a href="#">un lien</a>
-            <a href="#">un lien</a>
-            <a href="#">un lien</a>
-        </nav>
-    </header>
-    <section>
-        <h1>
-            Nom : {{ serviteurs.nom }}
-        </h1>
-        <p>prenom : {{ serviteurs.post_nom }}</p>
-        <p>postnom : {{ serviteurs.prenom }}</p>
-        <div style="width: 20%;">
-            <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.nom }}" style="width: 50%">
-        </div>
+{% extends 'serviteurs/base.html' %}
+<!-- head part -->
+{% block title %} <title>info sur {{ serviteurs.prenom }}</title> {% endblock %}
 
-    </section>
-</body>
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css"  href="{% static 'serviteurs/detail_serviteurs.css' %}"> {% endblock %}
+<!-- part body -->
+{% block maincontent %}
+    <div class="containerDetail">
+        <div class="photoDetail">
+            <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.nom }} ">
+        </div>
+        <div class="infoDetail">
+            <div class="name">
+                <h3>{{ serviteurs.prenom }} {{ serviteurs.post_nom }} {{ serviteurs.nom }}</h3>
+                <p class="departement">Departement : d'iintersession</p>
+            </div>
+            <div class="moreinfo">
+                <h3>Information personnelle</h3>
+                <ul class="liste">
+                    <li>date de naissance : <strong class="importants"></strong>  {{ serviteurs.date_de_naissance }}</li>
+                    <li>
+                         <p>numero de contacte :</p>
+                         <ul class="liste">
+                             <li>simple : <strong class="importants">{{ serviteurs.contact }}</strong> </li>
+                             <li>whatsapp : <strong class="importants">{% if serviteurs.reseau %}{{ serviteurs.reseau }}{% else %} pas de numero reseaux{% endif %}</strong> 
+                             </li>
+                         </ul>
+                    </li>
+                    <li>adresse : <strong class="importants">{{ serviteurs.adresse }}</strong> </li>
+                    <li>statut : <strong class="importants">{{ serviteurs.status }}</strong> </li>
+
+                </ul>
+                <h3>Information sur la personne à contacter</h3>
+                <ul class="liste">
+                    <li>nom complet : <strong class="importants">{{ serviteurs.nomc }}</strong> </li>
+                    <li>numero de contacte : <strong class="importants">{{ serviteurs.contactC }}</strong> </li>
+                    <li>adresse : <strong class="importants">{{ serviteurs.adresseC }}</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!--
+<div style="width: 20%;">
+            <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.nom }}" class="width">
+        </div>
+    -->t

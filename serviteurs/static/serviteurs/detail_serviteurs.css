@@ -1,0 +1,21 @@
+.liste{
+    list-style: none;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.containerDetail{
+    width: 95%;
+    display: flex;
+}
+.photoDetail img{
+    width: 100%;
+}
+.photoDetail{
+    width: 40%;
+}
+
+.infoDetail{
+    width: 60%;
+    background-color: white;
+}
