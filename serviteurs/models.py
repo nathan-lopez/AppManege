@@ -56,8 +56,7 @@ class Serviteurs(models.Model):
     )
 
     # valuer de retour
-    def __str__(self):
-        return f'{self.prenom} {self.post_nom} {self.nom}'
+
 
         # Model Save override
     def save(self, *args, **kwargs):

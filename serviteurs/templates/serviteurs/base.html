@@ -17,10 +17,10 @@
 
             <nav class="topnav">
                 <div class="containernav">
-                    <a href="#" class="topliens btn ">Accueil</a>
-                    <a href="#" class="topliens btn">Evenements</a>
+                    <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+                    <a href="" class="topliens btn">Evenements</a>
                     <a href="#" class="topliens btn">Departements</a>
-                    <a href="#" class="topliens btn activer">Serviteurs</a>
+                    <a href="{% url 'serviteur-liste' %}" class="topliens btn activer">Serviteurs</a>
                     <a href="#" class="topliens btn">A propos</a>
                 </div>
                 <div class="containerlogo">

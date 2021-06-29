@@ -14,12 +14,9 @@
 {% block content_sidebar %}
     <h3>Dans cette section</h3>
     <ul>
-        <li>
-            Enregistrer un nouveau serviteur
-        </li>
+        <li> <a href="{% url 'serviteur-nouveau' %} " class="sidelien"> Enregistrer un nouveau serviteur </a> </li>
         <li>modifer les information d'un serviteur</li>
         <li>Suprimer un serviteurs</li>
-        <li>gerer les suspensions</li>
     </ul>
 {% endblock %}
 {% block maincontent %}
@@ -32,10 +29,11 @@
                     <div class="additional">
                         <div class="user-card">
                             <div class="level center">
-                                photo
+                                <a href="{{ serviteur.get_absolute_url }}">Plus d'infos</a>
+
                             </div>
                             <div class="points center">
-                                <a href="{{ serviteur.get_absolute_url }}">En savoir plus</a>
+                                <a href="{% url 'serviteur-modification' serviteur.pk %}">modifier infos</a>
                             </div>
                             <div class="center"> <img src="{{ serviteur.doc.url }}" alt="photo"></div>
                         </div>
