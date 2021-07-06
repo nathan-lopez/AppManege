@@ -1,8 +1,112 @@
-{% extends 'serviteurs/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'serviteurs/formulaire_serviteur.css' %}">
+    <title>creation serviteur</title>
+</head>
+<body>
+    <header class="topHeader">
 
-{% block maincontent %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
-{% endblock %}
+        <nav class="topnav">
+            <div class="containernav">
+                <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+                <a href="" class="topliens btn">Evenements</a>
+                <a href="#" class="topliens btn">Departements</a>
+                <a href="{% url 'serviteur-liste' %}" class="topliens btn activer">Serviteurs</a>
+                <a href="#" class="topliens btn">A propos</a>
+            </div>
+            <div class="containerlogo">
+                {% load static %}
+                <img src="{% static 'images/logo.jpg' %}" alt="" class="toplogo">
+            </div>
+        </nav>
+    </header>
+    <section class="body_section">
+        <div class="bannier" style="text-align: center;">
+            <div class="container_title">
+                <span class="title">Enregistrement</span>
+            </div>
+            
+        </div>
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="formulaire">
+                    <div >
+                        <span class="photo_name" style="padding-left: 5px">photo :</span>
+                        <div class="container_photo">
+                            <div class="cont">
+                                {% load static %}
+                                <img src="{% static 'images/photo_avatar.png' %}" alt="photo actuelle" width="190px">
+                            </div>
+                            <div class="updatepic">
+                                <label for="{{ form.doc.id_for_label }}"> inseret la photo ici:</label> <br>
+                                {{ form.doc }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="body_form">
+                        <h2>Information personnelle</h2>
+                        <div class="personel">
+
+                            <label for="{{ form.nom_id_for_label }}">Nom :</label>{{form.nom}}
+                            <br>
+                            <label for="{{ form.prenom_id_for_label }}">Prenom :</label>{{ form.prenom }}
+                            <br>
+                            <label for="{{ form.post_nom.id_for_label }}">Postnom :</label>{{ form.post_nom }}
+                            <br>
+                            <label for="{{ form.date_de_naissance_id_for_label }}"> Date de naissance :</label>{{ form.date_de_naissance }}
+                            <br>
+                            <label for="{{ form.genre_id_for_label }}"> genre :</label>{{ form.genre }}
+                            <div>
+                                <h4> numero de telephone</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    {% load static %}
+                                    <li>
+                                        <img src="{% static 'images/phone.png' %}" alt="phone" height="15" class="imgf">
+                                        <label for="{{ form.contact.id_for_label }}">simple :</label>
+                                        {{ form.contact }}
+                                    </li>
+                                    <li>
+                                        <img src="{% static 'images/whatsapp.png' %}" alt="whats" height="15" class="imgf">
+                                        <label for="{{ form.reseau.id_for_label }}">whataspp :</label>
+                                        {{ form.reseau }}
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <label for="{{ form.id_for_label }}">adresse :</label>
+                            {{ form.adresse }}
+
+                        </div>
+                        <h2>Personne à contacter </h2>
+                        <div class="respons">
+                            <label for="{{ form.nom_responsable.id_for_label }}">Nom complet :</label>{{ form.nom_responsable }}
+                            <div><img src="{% static 'images/phone.png' %}" alt="phone" height="15" class="imgf">
+                            <label for="{{ form.contactC.id_for_label }}">Numero :</label>{{ form.contactC }}</div>
+
+                            <label for="{{ form.adresseC.id_for_label }}">adresse :</label>{{ form.adresseC }}
+                            <br>
+                            <label for="{{ form.degret.id_for_label }}"> degré de parenté :</label>{{ form.degret }}
+                        </div>
+
+
+                    </div>
+                </div>
+                
+                
+
+                <div class="container_bouton">
+                    <input class="bouton" type="submit" value="Enregistrer">
+                </div>
+            </form>
+        </div>
+
+    </section>
+</body>
+</html>

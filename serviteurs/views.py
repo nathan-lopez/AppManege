@@ -1,6 +1,8 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Serviteurs
+#from .form import Upadatallinfos
+#from django.shortcuts import get_object_or_404
 
 
 # tout les serviteurs
@@ -19,7 +21,9 @@ class CreeServiteur(CreateView):
     template_name = "serviteurs/serviteur_creation.html"
     model = Serviteurs
     fields = '__all__'
+
 class ModifierServiteur(UpdateView):
     template_name = "serviteurs/serviteur_modif.html"
     model = Serviteurs
-    fields = '__all__'
+    fields = "__all__"
+

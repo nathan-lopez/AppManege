@@ -1,0 +1,12 @@
+{% extends 'serviteurs/base.html' %}
+
+{% block maincontent %}
+    <h3>que genre d'evenement voulait vous sauvegarder</h3>
+    <a href="{% url 'ajout__agape' %}">Agape</a>
+    <a href="{% url 'ajout__culte' %}">culte</a>
+    <a href="{% url 'ajout__cultespecial' %}">culte special</a>
+    <a href="{% url 'ajout__enseignement' %}">enseignement</a>
+    <a href="{% url 'ajout__partage' %}">partage</a>
+    <a href="{% url 'ajout__priere' %}">priere</a>
+
+{% endblock %}

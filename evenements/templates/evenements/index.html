@@ -1,1 +1,99 @@
 {% extends 'serviteurs/base.html' %}
+{% block content_sidebar %}
+    <h3>quelque liens</h3>
+    <a href="{% url 'ajout__event' %}"> ajout d'un evenement</a>
+{% endblock %}
+{% block maincontent %}
+    <h3>liste des evenement enregistrer</h3>
+    {% if list_agape %}
+        <table>
+            {% for agape in list_agape %}
+                <tr>
+                    <th>{{ agape.date }}</th>
+                    <th>{{ agape.lieu }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p> aucun agape n'a était enregistrer jusque là </p>
+    {% endif %}
+
+    {% if list_culte %}
+         <table>
+            {% for culte in list_culte %}
+                <tr>
+                    <th>{{ culte.date }}</th>
+                    <th>{{ culte.theme }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            pas de culte jusque là
+        </p>
+    {% endif %}
+
+    {% if list_cultespecial %}
+         <table>
+            {% for cultes in list_cultespecial %}
+                <tr>
+                    <th>{{ cultes.date }}</th>
+                    <th>{{ cultes.theme }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            pas de culte special
+        </p>
+    {% endif %}
+
+
+    {% if list_enseignement %}
+         <table>
+            {% for e in list_enseignement %}
+                <tr>
+                    <th>{{ e.date }}</th>
+                    <th>{{ e.theme }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            pas d'enseignement
+        </p>
+    {% endif %}
+
+    {% if list_partage %}
+         <table>
+            {% for partage in list_partage %}
+                <tr>
+                    <th>{{ partage.date }}</th>
+                    <th>{{ partage.theme }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            pas de partage
+        </p>
+    {% endif %}
+
+    {% if list_priere %}
+        <table>
+            {% for priere in list_priere %}
+                <tr>
+                    <th>{{ priere.date }}</th>
+                    <th>{{ priere.theme }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            pas de priere
+        </p>
+    {% endif %}
+
+
+
+{% endblock %}
