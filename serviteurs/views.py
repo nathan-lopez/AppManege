@@ -1,7 +1,9 @@
 # from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Serviteurs
-#from .form import Upadatallinfos
+from django.urls import reverse_lazy
+
+from .form import Upadatallinfos
 #from django.shortcuts import get_object_or_404
 
 
@@ -18,12 +20,16 @@ class Detailserviteur(DetailView):
 
 # pour la creation d'un nouveau serviteurs
 class CreeServiteur(CreateView):
-    template_name = "serviteurs/serviteur_creation.html"
-    model = Serviteurs
-    fields = '__all__'
+     template_name = "serviteurs/serviteur_creation.html"
+     form_class = Upadatallinfos
+
 
 class ModifierServiteur(UpdateView):
     template_name = "serviteurs/serviteur_modif.html"
+    form_class = Upadatallinfos
+
+class SuprimerServiteur(DeleteView):
+    template_name = "serviteurs/serviteurs_suprimer.html"
     model = Serviteurs
-    fields = "__all__"
+    success_url = reverse_lazy("serviteur-liste")
 

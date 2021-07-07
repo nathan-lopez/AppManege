@@ -4,7 +4,7 @@
 }
 @font-face{
     font-family: popping-medium;
-    src: url("poopins/Poppins-Medium.ttf");
+    src: url("poppins/Poppins-Medium.ttf");
 }
 
 body{
@@ -177,7 +177,7 @@ label{
 input{
     font-family: popping-medium;
     font-size: 13px;
-    color: #5555;
+    color: black;
     display: block;
     padding: 0 5px;
     touch-action: manipulation;

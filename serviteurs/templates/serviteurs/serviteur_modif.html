@@ -53,7 +53,7 @@
                             <div class="container_photo">
                                 <div class="cont">
                                     {% load static %}
-                                    <img  src="{% static 'images/phtot_avatar.png' %}" alt="photo actuelle" >
+                                    <img  src="{% static 'images/photo_avatar.png' %}" alt="photo actuelle" >
                                 </div>
                                 <div class="updatepic">
                                     <label for="{{ form.doc.id_for_label }}"> enregistrer une photo </label> <br>
@@ -74,6 +74,8 @@
                             <br>
                             <label for="{{ form.date_de_naissance_id_for_label }}"> Date de naissance :</label>{{ form.date_de_naissance }}
                             <br>
+                            <label for="{{ form.lieu_de_naissance.id_for_label }}"> lieu de naissance :</label>{{ form.lieu_de_naissance }}
+                            <br>
                             <label for="{{ form.genre_id_for_label }}"> genre :</label>{{ form.genre }}
                             <div>
                                 <h4> numero de telephone</h4>
@@ -92,9 +94,18 @@
 
                                 </ul>
                             </div>
-                            <label for="{{ form.id_for_label }}">adresse :</label>
+                            <label for="{{ form.adresse.id_for_label }}">adresse :</label>
                             {{ form.adresse }}
-
+                            <br>
+                            <label for="{{ form.poste.id_for_label }}">poste dans le departement</label>
+                            {{ form.poste }}
+                        </div>
+                        <h2>Information consernant le ministère</h2>
+                        <div class="ministere">
+                            <label for="{{ form.departements.id_for_label }}">departement</label>
+                            {{ form.departements }}
+                            <label for="{{ form.poste.id_for_lable }}">poste</label>
+                            {{ form.poste }}
                         </div>
                         <h2>Personne à contacter </h2>
                         <div class="respons">
@@ -110,8 +121,6 @@
 
                     </div>
                 </div>
-                
-                
 
                 <div class="container_bouton">
                     <input class="bouton" type="submit" value="Enregistrer">

@@ -1,20 +1,28 @@
 from django.db import models
 # pour formater l'url
 from django.shortcuts import reverse
+from departements.models import DepartementSorte
 # import os
 
 
 class Serviteurs(models.Model):
     # mes constante
+    POSTE = (
+        ('President', 'President'),
+        ('vice-precident', 'vice-precident'),
+        ('secretaire', 'secretaire'),
+        ('poste unique', 'poste unique'),
+    )
     RESPONSABLE = (
         ('Père', 'Père'),
         ('Mère', 'Mère'),
         ('Tuteur', 'Tutreur'),
     )
     STATUS_SERVICE = (
-        ('S', 'Suspendu'),
-        ('O', 'En observation'),
-        ('B', 'conduite parfaite'),
+        ('suspendu', 'Suspendu'),
+        ('parfaite', 'parfaite'),
+        ('bonne', 'bonne'),
+        ('irregulier', 'En observation')
     )
     GENRE = (
         ('Servante', 'Servante'),
@@ -31,6 +39,7 @@ class Serviteurs(models.Model):
         default='Servante',
     )
     date_de_naissance = models.DateField("date de naissance")
+    lieu_de_naissance = models.CharField(max_length=50, verbose_name="lieu de naissance")
     doc = models.ImageField(
         blank=True,
         null=True,
@@ -57,12 +66,19 @@ class Serviteurs(models.Model):
     # nombre de sercice par ans
     # culte et date
 
+    # departements
+    departement = models.ForeignKey(DepartementSorte, on_delete=models.PROTECT)
+    poste = models.CharField(
+        max_length=20,
+        choices=POSTE,
+        default="poste unique",
+    )
     # conduite
     status = models.CharField(
-        max_length=1,
+        max_length=10,
         choices=STATUS_SERVICE,
         blank=True,
-        default='B',
+        default='bonne',
         help_text='resumé de la conduite d\' un serviteur',
     )
 

@@ -1,50 +1,91 @@
-{% extends 'serviteurs/base.html' %}
-<!-- head part -->
-{% block title %} <title>info sur {{ serviteurs.prenom }}</title> {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'serviteurs/detail_serviteurs.css' %}">
+        <title>creation serviteur</title>
+    </head>
+    <body>
+        <header class="topHeader">
 
-{% block style %}
-    {% load static %}
-    <link rel="stylesheet" type="text/css"  href="{% static 'serviteurs/detail_serviteurs.css' %}"> {% endblock %}
-<!-- part body -->
-{% block maincontent %}
-    <div class="containerDetail">
-        <div class="photoDetail">
-            <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.nom }} ">
-            <h2>{{ serviteurs.prenom }} {{ serviteurs.post_nom }}</h2>
-        </div>
-        <div class="infoDetail">
-            <div class="name">
-                <h3>{{ serviteurs.prenom }} {{ serviteurs.post_nom }} {{ serviteurs.nom }}</h3>
-                <p class="departement">Departement : d'iintersession</p>
+            <nav class="topnav">
+                <div class="containernav">
+                    <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+                    <a href="" class="topliens btn">Evenements</a>
+                    <a href="#" class="topliens btn">Departements</a>
+                    <a href="{% url 'serviteur-liste' %}" class="topliens btn activer">Serviteurs</a>
+                    <a href="#" class="topliens btn">A propos</a>
+                </div>
+                <div class="containerlogo">
+                    {% load static %}
+                    <img src="{% static 'images/logo.jpg' %}" alt="" class="toplogo">
+                </div>
+            </nav>
+        </header>
+        <section class="main_section">
+            <article class="info_container">
+                <div class="photo_container">
+                    {% if serviteurs.doc %}
+                        <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.prenom }}" class="photo">
+                    {% else %}
+                        {% load static %}
+                        <img src="{% static 'images/photo_avatar.png' %}" alt="no photo">
+                    {% endif %}
+                </div>
+                <div class="infos">
+                    <div>
+                        <h4> Informations generales </h4>
+                        <div class="info_and_data"><span class="generique">Nom :</span>
+                        <span class="data">{{ serviteurs.nom }}</span><br></div>
+                        <div class="info_and_data"><span class="generique">Postnom</span>
+                        <span class="data">{{ serviteurs.post_nom }}</span><br></div>
+                        <div class="info_and_data"><span class="generique">Prenom :</span>
+                        <span class="data">{{ serviteurs.prenom }}</span><br></div>
+                        <div class="info_and_data"><span class="generique">date de naissance :</span>
+                        <span class="data">{{ serviteurs.date_de_naissance }} à {{ serviteurs.lieu_de_naissance }}</span><br>
+</div>
+                        <h4> informations relative aux ministère </h4>
+                        <div class="info_and_data"><span class="generique">departement :</span>
+                        <span class="data">technique</span><br></div>
+                        <div class="info_and_data"><span class="generique">poste :</span>
+                        <span class="data">President</span><br></div>
+                        <div class="info_and_data"><span class="generique">conduite :</span>
+                        <span class="data"></span>{{ serviteurs.status }}<br></div>
+                        <h4> informations de contacte </h4>
+                        <div class="info_and_data"><span class="generique">adresse :</span>
+                        <span class="data">{{ serviteurs.adresse }}</span><br></div>>
+                        <div class="info_and_data"><span class="generique">numero de contact :</span>
+                            <ul style="list-style: none">
+                                <li><span class="data">{{ serviteurs.contact }}</span> </li>
+                                {% if serviteurs.reseau %}
+                                    <li> <span class="data">{{ serviteurs.reseau }}</span> </li>
+                                {% endif %}
+                            </ul></div>
+                        <h4> informations sur la personne à contacter en urgence </h4>
+                        <div class="info_and_data"><span class="generique">nom :</span>
+                        <span class="data">{{ serviteurs.nom_responsable }}</span><br></div>
+                        <div class="info_and_data"><span class="generique">adresse :</span>
+                        <span class="data">{{ serviteurs.adresseC }}</span><br></div>
+                        <div class="info_and_data"><span class="generique">numero :</span>
+                        <span class="data">{{ serviteurs.contactC }}</span><br></div>
+                    </div>
+                    
+                    
+                </div>
+            </article>
+            <div class="bouton_container">
+                <div class="bouton1">
+                    <a  href="{% url 'serviteur-modification' serviteurs.pk %}">modifier les information</a>
+                </div>
+                <div class="bouton2">
+                    <a  href="{% url 'serviteur-suppression' serviteurs.pk %}">supprimer le serviteur</a>
+                </div>
             </div>
-            <div class="moreinfo">
-                <h3>Information personnelle</h3>
-                <ul class="liste">
-                    <li>date de naissance : <strong class="importants"></strong>  {{ serviteurs.date_de_naissance }}</li>
-                    <li>
-                         <p>numero de contacte :</p>
-                         <ul class="liste">
-                             <li>simple : <strong class="importants">{{ serviteurs.contact }}</strong> </li>
-                             <li>whatsapp : <strong class="importants">{% if serviteurs.reseau %}{{ serviteurs.reseau }}{% else %} pas de numero reseaux{% endif %}</strong> 
-                             </li>
-                         </ul>
-                    </li>
-                    <li>adresse : <strong class="importants">{{ serviteurs.adresse }}</strong> </li>
-                    <li>statut : <strong class="importants">{{ serviteurs.status }}</strong> </li>
+        </section>
 
-                </ul>
-                <h3>Information sur la personne à contacter</h3>
-                <ul class="liste">
-                    <li>nom complet : <strong class="importants">{{ serviteurs.nom_responsable }}</strong> </li>
-                    <li>numero de contacte : <strong class="importants">{{ serviteurs.contactC }}</strong> </li>
-                    <li>adresse : <strong class="importants">{{ serviteurs.adresseC }}</strong></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-<!--
-<div style="width: 20%;">
-            <img src="{{ serviteurs.doc.url }}" alt="photo de {{ serviteurs.nom }}" class="width">
-        </div>
-    -->t
+    </body>
+</html>
+

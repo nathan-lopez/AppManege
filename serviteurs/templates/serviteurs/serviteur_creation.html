@@ -62,6 +62,8 @@
                             <br>
                             <label for="{{ form.date_de_naissance_id_for_label }}"> Date de naissance :</label>{{ form.date_de_naissance }}
                             <br>
+                            <label for="{{ form.lieu_de_naissance.id_for_label }}"> lieu de naissance :</label>{{ form.lieu_de_naissance }}
+                            <br>
                             <label for="{{ form.genre_id_for_label }}"> genre :</label>{{ form.genre }}
                             <div>
                                 <h4> numero de telephone</h4>
@@ -83,6 +85,13 @@
                             <label for="{{ form.id_for_label }}">adresse :</label>
                             {{ form.adresse }}
 
+                        </div>
+                        <h2>Information consernant le ministère</h2>
+                        <div class="ministere">
+                            <label for="{{ form.departement.id_for_label }}">departement</label>
+                            {{ form.departement }}
+                            <label for="{{ form.poste.id_for_lable }}">poste</label>
+                            {{ form.poste }}
                         </div>
                         <h2>Personne à contacter </h2>
                         <div class="respons">

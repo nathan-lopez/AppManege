@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="align-items: center">
+    <form method="post">
+        {% csrf_token %}
+        <p> voulez vous vraiment supprimer {{ serviteurs.nom }} </p>
+
+        <input type="submit" value="Confirmer la suppression">
+        <a href="{% url 'serviteur-liste' %}"> annuler la suppression </a>
+
+    </form>
+</body>
+</html>
