@@ -1,0 +1,115 @@
+{% extends 'serviteurs/base.html' %}
+
+<!--
+    i change the title of document
+-->
+{% block title %}
+    <title>tout les activités</title>
+{% endblock %}
+<!-- load the css -->
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'evenements/style_onglets.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'evenements/card_event.css' %}">
+    <script src="{% static 'script/js_onglets.js' %}" defer></script>
+
+{% endblock %}
+
+<!--
+    main content
+-->
+{% block maincontent %}
+    <div class="content_one">
+        <ul class="mini_nav" >
+            <li class="presente linkes"> <a href="#Agape"> les agapes</a></li>
+            <li class="linkes"> <a href="#Culte"> les cultes</a></li> <!--
+            <li class="linkes"> <a href="#culte_specoal"> les cultes special </a> </li>
+            <li class="linkes"> <a href="#partage"> Partages</a> </li>
+            <li class="linkes"> <a href="#priere"> Prière </a> </li>
+            <li class="linkes"> <a href="#enseignement"> Enseignements </a> </li>
+            -->
+        </ul>
+        <div class="contetn_article">
+            <article class="artic presente" id="Agape">
+                <h3>liste des evenement enregistrer</h3>
+                {% if agape_list %}
+                    {% for agape in agape_list %}
+                        <div class="card_content">
+                            <div class="card_event">
+                                <div>
+                                    <span class="card_generique">agape organiser le : </span>
+                                    <span class="card_info"> {{agape.date}} </span>
+                                </div>
+                                <div>
+                                    <span class="card_generique">lieu : </span>
+                                    <span class="card_info"> {{ agape.lieu }}</span> 
+                                </div>
+                            </div>
+                            <div class="bouton_detail">
+                                <a href="{{ agape.get_absolute_url }}"> more informations </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% endif %}
+            </article>
+            <article class="artic" id="Culte">
+                <h3>liste de tout les cultes enregistrer</h3> 
+                {% if culte %}
+                        {% for c in culte %}
+                            <p>culte du {{ c.date }}</p>
+                            <p> theme : {{ c.theme }}</p>
+                            <p> moderateur : {{ c.moderateur }}</p>
+                            <p>predicateur : {{ c.predicateur }}</p>
+
+                        {% endfor %}
+                {% else %}
+                    <p> oups aucun culte enregistré </p>
+                {% endif %}
+            </article>
+            <article class="artic">
+                <h3> liste de tout les evenements de type Prières : </h3>  
+            </article>
+        <!--
+            <article class="artic"></article>
+            <article class="artic"></article>
+            <article class="artic"></article>
+        -->
+
+        </div>
+
+    </div>
+    
+{% endblock %}
+
+<!--
+<h3>liste des evenement enregistrer</h3>
+    {% if agape_list %}
+        <ul>
+            {% for agape in agape_list %}
+                <li>
+                    <p>{{ agape.date }}</p>
+                    <p>{{ agape.lieu }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> aucun agape n'a était enregistrer jusque là </p>
+    {% endif %}
+    LES CULTES C'EST ICI BAS !!
+    {% if culte %}
+        <ul>
+            {% for c in culte %}
+                <li>
+                    <p>{{ c.date }}</p>
+                    <p>{{ c.theme }}</p>
+                    <p>{{ c.moderateur }}</p>
+                    <p>{{ c.predicateur }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> oups aucun culte enregistré </p>
+    {% endif %}
+
+-->

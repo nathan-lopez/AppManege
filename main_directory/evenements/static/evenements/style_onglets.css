@@ -1,0 +1,58 @@
+.content_one{
+    padding: 5px;
+}
+
+.mini_nav ul , .mini_nav li{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+} 
+
+.mini_nav li{
+    float: left;
+    display: block;
+}
+
+.contetn_article{
+    clear: both;
+}
+.mini_nav a{
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 15px;
+    display: inline-block;
+    background-color: #c6ddf8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.mini_nav .presente a{
+    background-color: rgb(128, 153, 165);
+}
+
+
+.contetn_article {
+    padding: 20px;
+    background-color: rgb(128, 153, 165);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position: relative;
+    z-index: 3;
+}
+
+.artic{
+    display: none;
+}
+
+
+.artic.presente{
+    display: block;
+}
+
+
+.fade{
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.fade.in{
+    opacity: 1;
+}

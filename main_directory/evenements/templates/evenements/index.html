@@ -1,0 +1,37 @@
+{% extends 'serviteurs/base.html' %}
+{% block content_sidebar %}
+    <h3>quelque liens</h3>
+    <a href="{% url 'ajout__event' %}"> ajout d'un evenement</a>
+{% endblock %}
+{% block maincontent %}
+    <h3>liste des evenement enregistrer</h3>
+    {% if agape_list %}
+        <ul>
+            {% for agape in agape_list %}
+                <li>
+                    <p>{{ agape.date }}</p>
+                    <p>{{ agape.lieu }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> aucun agape n'a était enregistrer jusque là </p>
+    {% endif %}
+    LES CULTES C'EST ICI BAS !!
+    {% if culte %}
+        <ul>
+            {% for c in culte %}
+                <li>
+                    <p>{{ c.date }}</p>
+                    <p>{{ c.theme }}</p>
+                    <p>{{ c.moderateur }}</p>
+                    <p>{{ c.predicateur }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> oups aucun culte enregistré </p>
+    {% endif %}
+
+
+{% endblock %}

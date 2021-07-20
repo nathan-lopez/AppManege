@@ -1,0 +1,12 @@
+{% extends 'serviteurs/base.html' %}
+
+{% block maincontent %}
+   {% if liste_departement %}
+       <ul>
+       {% for serviteur in liste_departement %}
+           <li>{{ serviteur.serviteurs_set.model}}</li>
+       {% endfor %}
+       </ul>
+   {% endif %}
+
+{% endblock %}

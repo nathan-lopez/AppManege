@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Document</title>{% endblock %}
+
+    <!-- importer le fichier statique -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <div class="main_containt">
+        <header class="topHeader">
+
+            <nav class="topnav">
+                <div class="containernav">
+                    <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+                    <a href="{% url 'liste_activites' %}" class="topliens btn">Evenements</a>
+                    <a href="{% url 'liste_departement' %}" class="topliens btn">Departements</a>
+                    <a href="{% url 'serviteur-liste' %}" class="topliens btn activer">Serviteurs</a>
+                    <a href="#" class="topliens btn">A propos</a>
+                </div>
+                <div class="containerlogo">
+                    {% load static %}
+                    <img src="{% static 'images/logo.jpg' %}" alt="" class="toplogo">
+                </div>
+            </nav>
+
+            <div class="msg">
+                <div class="toptext">
+                    <h2 style="color: white; font-family: Arial, Helvetica, sans-serif; margin-bottom: 0;">
+                        Bienvenue dans <strong style="font-style: italic;">Gmanage</strong>
+                    </h2>
+                    <h4 style="color: white; font-family: Arial, Helvetica, sans-serif; margin-bottom: 0; margin-top: 5px;">
+                        {% block topinfo %}
+                            nous sommes pret à vous servir
+                        {% endblock %}
+                    </h4>
+    
+                    <p style="opacity: .7; padding-top: 5px; padding-bottom: 10%; font-size: 12px;">
+                        3 jours s'est écouler depuis la dernier modifications
+                    </p>
+                </div>
+                
+            </div>
+        </header>
+        <section class="main">
+            <div class="sidebar">
+                {% block content_sidebar %}
+                    <h3>
+                        Quelques liens
+                    </h3>
+                    <ul style="list-style: none;">
+                        <li>Liste de serviteurs</li>
+                        <li>Evenements recents</li>
+                        <li>solde de la caisse</li>
+                        <li>a propos</li>
+
+                    </ul>
+                {% endblock %}
+            </div>
+            <div class="maincontent">
+                {% block maincontent %}
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing e
+                        lit. Dolorum enim eius nesciunt corrupti excepturi hic eaque volup
+                        tatibus quaerat repellendus a obcaecati, voluptas officiis! Provident voluptatem cum veritatis pariatur quidem possimus.
+                        Illo, voluptatem? Consequa
+                        tur architecto quo, velit saepe nostrum deleniti. Nobis quis repellendus, excepturi e
+                        a deserunt nemo incidunt quos! Ea delectus culpa dolor dolorem illum offic
+                        ia corrupti quae facere, vero reprehenderit.
+                        Enim dolores recusandae, rem nam, ut eum aspernatur cumque, mollitia amet p
+                        ossimus placeat reprehenderit. Recusandae aliquid totam
+                         nobis incidunt unde, iure quis modi odit fugit quasi cum quia reiciendis ut.
+                        Tempore hic porro cupiditate expedita similique cumque quod eius non quia dolori
+                        bus quidem autem esse repellat ea temporibus numquam deserunt, exercitationem fugit iure illum vel, odio laborum aliquam molestiae. Assumenda.
+                        Illum optio, unde quis autem a
+                        ssumenda modi deserunt nobis quod esse enim velit? Nihil at ratione accusantium. Nemo
+                         itaque numquam aut voluptas voluptatibus laudantium minima! At et suscipit aspernatur minima!
+                        Minima necessitatibus maiores tempora sunt odio nam animi maxime corporis eligendi nisi. Facilis blanditiis optio officiis, fugit iusto quo debitis neque eum perferendis tempora! Sed ex officiis quibusdam a temporibus!
+                        Nobis ea, modi eum nihil 
+                        reiciendis quod quo ipsa saepe aperiam iure illum quibusdam consectetur, mollitia aut? Omnis harum, quia eius, illo dolore suscipit architecto voluptatum aliquam amet hic deleniti.
+                        Molestias, quos dolor. Ut, dolo
+                        remque illo modi animi minus ex repellat nul
+                        la deleniti perspiciatis, asperiores soluta similique labore voluptates iusto iste expedita, eligendi magni eaque cupiditate temporibus. Quos, et! Ratione.
+                        Accusamus vero aliquid consectetur, voluptatum quisquam culpa excepturi cumque atque iure magni enim veniam reprehenderit quis provident? Harum adipisci nisi, alias consequuntur, assumenda voluptate quidem dignissimos voluptatum repellendus aperiam tenetur?
+                        Nesciunt expedita doloribus ad, laboriosam optio dolor tempori
+                        bus error officia architecto consequatur tenetur dicta at! Facere pers
+                        piciatis deleniti aut at assumenda maxime adipisci quis eaque! Esse beatae atque consectetur quos.
+                    </p>
+                {% endblock %}
+
+            </div>
+        </section>
+        <footer class="bottomfooter">
+
+        </footer>
+    </div>

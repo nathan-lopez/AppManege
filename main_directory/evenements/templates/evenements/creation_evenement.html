@@ -1,0 +1,16 @@
+{% extends 'serviteurs/base.html' %}
+
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'serviteurs/formulaire_serviteur.css' %}">
+
+{% endblock %}
+
+{% block maincontent %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

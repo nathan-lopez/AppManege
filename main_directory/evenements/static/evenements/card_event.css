@@ -1,0 +1,32 @@
+.card_content{
+    background-color: rgb(233, 231, 231);
+    border-radius: 2px;
+    opacity: 0.9;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.card_event div{
+    display: flex;
+}
+
+.card_generique{
+    opacity: 0.7;
+    width: 140px;
+}
+.card_info{
+    margin-left: 20%;
+}
+
+.bouton_detail a:hover{
+    background-color: blue;
+}
+.bouton_detail a{
+    text-decoration: none;
+    color: inherit;
+    margin-left: 60%;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #383737;
+}
