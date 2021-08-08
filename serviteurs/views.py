@@ -4,7 +4,7 @@ from .models import Serviteurs
 from django.urls import reverse_lazy
 
 from .form import Upadatallinfos
-#from django.shortcuts import get_object_or_404
+# from django.shortcuts import get_object_or_404
 
 
 # tout les serviteurs
@@ -17,6 +17,7 @@ class Allserviteurs(ListView):
 class Detailserviteur(DetailView):
     model = Serviteurs
     template_name = "serviteurs/serviteur_detail.html"
+
 
 # pour la creation d'un nouveau serviteurs
 class CreeServiteur(CreateView):
@@ -34,4 +35,11 @@ class SuprimerServiteur(DeleteView):
     template_name = "serviteurs/serviteurs_suprimer.html"
     model = Serviteurs
     success_url = reverse_lazy("serviteur-liste")
+
+
+class InterServiteur(ListView):
+    template_name = "serviteurs/serviteur_inter.html"
+    model = Serviteurs
+    context_object_name = "liste_de_serviteurs"
+
 

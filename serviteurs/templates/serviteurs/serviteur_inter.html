@@ -7,6 +7,15 @@
 {% endblock %}
 
 <!-- partie body -->
+
+<!-- les liens  -->
+{% block links %}
+    <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+    <a href="{% url 'liste_activites' %}" class="topliens btn">Evenements</a>
+    <a href="{% url 'liste_departement' %}" class="topliens btn">Departements</a>
+    <a href="{% url 'serviteur-liste' %}" class="topliens btn active">Serviteurs</a>
+    <a href="#" class="topliens btn">A propos</a>
+{% endblock %}
 {% block topinfo %}
     cette section est reservé
     en ce qui conserne la gestion de serviteurs
@@ -15,8 +24,7 @@
     <h3>Dans cette section</h3>
     <ul>
         <li> <a href="{% url 'serviteur-nouveau' %} " class="sidelien"> Enregistrer un nouveau serviteur </a> </li>
-        <li>modifer les information d'un serviteur</li>
-        <li>Suprimer un serviteurs</li>
+        <li><a href="{% url 'serviteur-delete_uploade' %}" class="sidelien " style="opacity: 1">supprimer ou modifier un serviteur</a></li>
     </ul>
 {% endblock %}
 {% block maincontent %}
@@ -32,7 +40,7 @@
                                 <a href="{{ serviteur.get_absolute_url }}">Plus d'infos</a>
                             </div>
                             <div class="points center">
-                                <a href="{% url 'serviteur-modification' serviteur.pk %}">modifier infos</a>
+
                             </div>
                             <div class="center">
                                 {% if serviteur.doc %}
@@ -53,16 +61,22 @@
                                 <span>Position/Role ;</span>
                                 <span>{{ serviteur.poste }}</span>
                             </div>
+                            <div class="touch">
+                                <div class="upload "><a href="{% url 'serviteur-modification' serviteur.pk %}">modifier infos</a></div>
+                                <div class="delet"><a href="{% url 'serviteur-suppression' serviteur.pk %}">Supprimer</a></div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="general">
                         <h1 style="text-transform: capitalize">{{ serviteur.prenom }}</h1>
                         <p>
-                            petite remarque ou intension à l'egard de la personne
+                            Glisser le curseur ici pour supprimer ou modifier
                         </p>
                         <span class="more">{{ serviteur.adresse }}</span>
                     </div>
                 </div>
+
         {% endfor %}
         </div>
     {% else %}

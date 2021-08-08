@@ -64,7 +64,7 @@ body{
     margin: 5px;
 }
 
-.topnav a{
+.topnav a, .touch a{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.5);
     transition-property: all;
@@ -81,7 +81,7 @@ body{
     border: 2px solid rgba(255, 255, 255, 1);
 
 }
-.topnav a:hover{
+.topnav a:hover, .touch a:hover{
     color: white;
 }
 .toptext{
@@ -124,8 +124,32 @@ body{
     padding-left: 20px;
     background-color: #c6ddf8;
     width: 80%;
+}
+.touch{
+    margin-top: 50px;
+    display: flex;
 
 }
+
+.upload a{
+    background-color: #118dff;
+    margin: 30px 5px;
+    padding: 10px 5px;
+    opacity: 0.8;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+}
+.delet a{
+    background-color: #ff0900;
+    margin: 30px 5px;
+    padding: 10px 5px;
+    opacity: 0.9;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+
+}
+
 
 .bootomfooter{
     background-color: black;

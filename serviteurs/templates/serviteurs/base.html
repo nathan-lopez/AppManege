@@ -17,11 +17,13 @@
 
             <nav class="topnav">
                 <div class="containernav">
-                    <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
-                    <a href="{% url 'liste_activites' %}" class="topliens btn">Evenements</a>
-                    <a href="{% url 'liste_departement' %}" class="topliens btn">Departements</a>
-                    <a href="{% url 'serviteur-liste' %}" class="topliens btn activer">Serviteurs</a>
-                    <a href="#" class="topliens btn">A propos</a>
+                    {% block links %}
+                        <a href="{% url 'acceuil' %}" class="topliens btn ">Accueil</a>
+                        <a href="{% url 'liste_activites' %}" class="topliens btn">Evenements</a>
+                        <a href="{% url 'liste_departement' %}" class="topliens btn">Departements</a>
+                        <a href="{% url 'serviteur-liste' %}" class="topliens btn ">Serviteurs</a>
+                        <a href="#" class="topliens btn">A propos</a>
+                    {% endblock %}
                 </div>
                 <div class="containerlogo">
                     {% load static %}
@@ -69,33 +71,15 @@
                         lit. Dolorum enim eius nesciunt corrupti excepturi hic eaque volup
                         tatibus quaerat repellendus a obcaecati, voluptas officiis! Provident voluptatem cum veritatis pariatur quidem possimus.
                         Illo, voluptatem? Consequa
-                        tur architecto quo, velit saepe nostrum deleniti. Nobis quis repellendus, excepturi e
-                        a deserunt nemo incidunt quos! Ea delectus culpa dolor dolorem illum offic
-                        ia corrupti quae facere, vero reprehenderit.
-                        Enim dolores recusandae, rem nam, ut eum aspernatur cumque, mollitia amet p
-                        ossimus placeat reprehenderit. Recusandae aliquid totam
-                         nobis incidunt unde, iure quis modi odit fugit quasi cum quia reiciendis ut.
-                        Tempore hic porro cupiditate expedita similique cumque quod eius non quia dolori
-                        bus quidem autem esse repellat ea temporibus numquam deserunt, exercitationem fugit iure illum vel, odio laborum aliquam molestiae. Assumenda.
-                        Illum optio, unde quis autem a
-                        ssumenda modi deserunt nobis quod esse enim velit? Nihil at ratione accusantium. Nemo
-                         itaque numquam aut voluptas voluptatibus laudantium minima! At et suscipit aspernatur minima!
-                        Minima necessitatibus maiores tempora sunt odio nam animi maxime corporis eligendi nisi. Facilis blanditiis optio officiis, fugit iusto quo debitis neque eum perferendis tempora! Sed ex officiis quibusdam a temporibus!
-                        Nobis ea, modi eum nihil 
-                        reiciendis quod quo ipsa saepe aperiam iure illum quibusdam consectetur, mollitia aut? Omnis harum, quia eius, illo dolore suscipit architecto voluptatum aliquam amet hic deleniti.
-                        Molestias, quos dolor. Ut, dolo
-                        remque illo modi animi minus ex repellat nul
-                        la deleniti perspiciatis, asperiores soluta similique labore voluptates iusto iste expedita, eligendi magni eaque cupiditate temporibus. Quos, et! Ratione.
-                        Accusamus vero aliquid consectetur, voluptatum quisquam culpa excepturi cumque atque iure magni enim veniam reprehenderit quis provident? Harum adipisci nisi, alias consequuntur, assumenda voluptate quidem dignissimos voluptatum repellendus aperiam tenetur?
-                        Nesciunt expedita doloribus ad, laboriosam optio dolor tempori
-                        bus error officia architecto consequatur tenetur dicta at! Facere pers
+                        tbus error officia architecto consequatur tenetur dicta at! Facere pers
                         piciatis deleniti aut at assumenda maxime adipisci quis eaque! Esse beatae atque consectetur quos.
                     </p>
                 {% endblock %}
-
             </div>
         </section>
         <footer class="bottomfooter">
 
         </footer>
     </div>
+</body>
+</html>
