@@ -1,12 +1,197 @@
 {% extends 'serviteurs/base.html' %}
 
+{% block title %}
+    <title> liste de departement </title>
+{% endblock %}
+
+{% block style %}
+    {% load static %}
+    <link href="{% static 'departements/tablestyle.css' %}">
+{% endblock %}
+
 {% block maincontent %}
-   {% if liste_departement %}
-       <ul>
-       {% for serviteur in liste_departement %}
-           <li>{{ serviteur.serviteurs_set.model}}</li>
-       {% endfor %}
-       </ul>
-   {% endif %}
+    {% for serviteur in serviteurs_list %}
+        {% if serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Coordination</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>nom</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% elif serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Fixed Table header</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% elif serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Fixed Table header</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% elif serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Fixed Table header</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% elif serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Fixed Table header</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% elif serviteur.departement == "Coordination" %}
+            <section>
+              <h1>Fixed Table header</h1>
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Company</th>
+                      <th>Price</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td>AAC</td>
+                      <td>AUSTRALIAN COMPANY </td>
+                      <td>$1.38</td>
+                      <td>+2.01</td>
+                    </tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}

@@ -1,0 +1,40 @@
+.confirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm_body{
+    background-color: #d6edf6;
+    padding: 20px;
+    width: 500px;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    border-radius: 3px;
+}
+.confirm_body a {
+    text-decoration: none;
+    color: inherit;
+    padding: 4px 5px;
+    border: 1px solid #54b3f5;
+    border-radius: 4px;
+    background-color: #5796f5;
+    margin: 10px;
+}
+.input{
+    background-color: #ff6262;
+    border: 1px solid #ff6262 ;
+    padding: 4px 5px;
+    border-radius: 4px;
+    margin: 10px;
+}
+.confirm_body a:hover,
+.input:hover{
+    background-color: #a0a0a0;
+}
