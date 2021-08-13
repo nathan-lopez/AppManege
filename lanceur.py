@@ -22,7 +22,7 @@ class Launcher:
         root.title("Launcher")
         logo = PhotoImage(file="static/images/logo.png").zoom(19).subsample(19)
         message = "jean 3 : 16 car DIEU à tant aimé le monde  qu'IL à donné son Fils unique, enfin que quiconque" \
-                       "croit en Lui ne périsse point, mais qu'il ai                                                 t la vie éternelle."
+                       "croit en Lui ne périsse point, mais qu'il ait la vie éternelle."
         self.main_body(root, message, logo)
         self.closed(root)
 

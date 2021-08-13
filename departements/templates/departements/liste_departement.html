@@ -1,3 +1,9 @@
+<!--
+ <QuerySet [<DepartementSorte: Coordination>, <DepartementSorte: Tresorerie>, <DepartementSorte: Intercession>,
+ <DepartementSorte: Choral>, <DepartementSorte: Technique>, <DepartementSorte: Media>, <DepartementSorte: Secretariat>]>
+
+
+ -->
 {% extends 'serviteurs/base.html' %}
 
 {% block title %}
@@ -6,192 +12,307 @@
 
 {% block style %}
     {% load static %}
-    <link href="{% static 'departements/tablestyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'departements/tablestyle.css' %}">
+    <script src="{% static 'departements/table_vide.js' %}"></script>
 {% endblock %}
 
 {% block maincontent %}
-    {% for serviteur in serviteurs_list %}
-        {% if serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Coordination</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+
+    <section>
+        <h1>Coordination</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
                       <th>nom</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Coordination" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    Aucun serviteur n'est affecté à ce departement
+                            {% endif %}
+                        {% endif %}
 
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-        {% elif serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Fixed Table header</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+                  {% endfor %}
+
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Tresorerie</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
-                      <th>Code</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Tresorerie" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    Aucun serviteur n'est affecté à ce departement
+                                </tr>
+                            {% endif %}
 
-                    </tr>
+
+                        {% endif %}
+                  {% endfor %}
                   </tbody>
-                </table>
-              </div>
-            </section>
-        {% elif serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Fixed Table header</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Intercession</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
-                      <th>Code</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Intercession" %}
+                            {% if serviteur.nom %}
+                                <tr >
+                                  <td id="a">{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr id="b">
+                                    Aucun serviteur n'est affecté à ce departement
+                                </tr>
+                            {% endif %}
 
-                    </tr>
+
+                        {% endif %}
+                  {% endfor %}
                   </tbody>
-                </table>
-              </div>
-            </section>
-        {% elif serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Fixed Table header</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Choral</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
-                      <th>Code</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Choral" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    Aucun serviteur n'est affecté à ce departement
+                                </tr>
+                            {% endif %}
 
-                    </tr>
+
+                        {% endif %}
+                  {% endfor %}
                   </tbody>
-                </table>
-              </div>
-            </section>
-        {% elif serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Fixed Table header</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody class="noaffiche" id="nobody">
+                        <tr>
+                            <td colspan="4"> Aucun serviteur n'est affecté a ce departement </td>
+                        </tr>
+                  </tbody>
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Technique</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
-                      <th>Code</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Technique" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    Aucun serviteur n'est affecté à ce departement
+                                </tr>
+                            {% endif %}
 
-                    </tr>
+
+                        {% endif %}
+                  {% endfor %}
                   </tbody>
-                </table>
-              </div>
-            </section>
-        {% elif serviteur.departement == "Coordination" %}
-            <section>
-              <h1>Fixed Table header</h1>
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody class="noaffiche" id="nobody">
+                        <tr>
+                            <td colspan="4"> Aucun serviteur n'est affecté a ce departement </td>
+                        </tr>
+                  </tbody>
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Media</h1>
+           <div class="tbl-header">
+               <table>
                   <thead>
                     <tr>
-                      <th>Code</th>
-                      <th>Company</th>
-                      <th>Price</th>
-                      <th>Change</th>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
                     </tr>
                   </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>AAC</td>
-                      <td>AUSTRALIAN COMPANY </td>
-                      <td>$1.38</td>
-                      <td>+2.01</td>
-                    </tr>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Media" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    Aucun serviteur n'est affecté à ce departement
+                                </tr>
+                            {% endif %}
 
-                    </tr>
+                        {% endif %}
+                  {% endfor %}
                   </tbody>
-                </table>
-              </div>
-            </section>
-        {% endif %}
-    {% endfor %}
+
+               </table>
+           </div>
+    </section>
+    <hr>
+
+    <section>
+        <h1>Secretariat</h1>
+           <div class="tbl-header">
+               <table>
+                  <thead>
+                    <tr>
+                      <th>Prenom</th>
+                      <th>Postnom</th>
+                      <th>nom</th>
+                      <th>Poste</th>
+                    </tr>
+                  </thead>
+              </table>
+           </div>
+           <div class="tbl-content">
+               <table>
+                  <tbody id="body" >
+                  {% for serviteur in serviteurs_list %}
+                        {% if serviteur.departement.nom == "Secretariat" %}
+                            {% if serviteur.nom %}
+                                <tr>
+                                  <td>{{ serviteur.prenom }}</td>
+                                  <td>{{ serviteur.post_nom }}</td>
+                                  <td>{{ serviteur.nom }}</td>
+                                  <td>+{{ serviteur.poste }}</td>
+                                </tr>
+                            {% else %}
+                                <tr >
+                                    <td colspan="4" rowspan="2"> Aucun serviteur n'est affecté à ce departement </td>
+                                </tr>
+                            {% endif %}
+
+
+                        {% endif %}
+                  {% endfor %}
+
+               </table>
+           </div>
+    </section>
+    <hr>
+    <p id="p1"> hello </p>
+
 
 {% endblock %}
